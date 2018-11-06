@@ -131,7 +131,7 @@ let config = {
 
     new CopyWebpackPlugin([
       {
-        from: 'styleguide/kss-assets',
+        from: 'styleguide/custom-template/kss-assets',
         to: 'kss-assets'
       }
     ]),
