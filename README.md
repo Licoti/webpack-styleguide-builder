@@ -35,3 +35,25 @@ npm run prod
 ```
 
 All files are now at Public/build folder
+
+## Critical CSS
+
+If you want critical css that extract code in a new generated css file, use the comment below between your declaration
+
+```
+/*!critical:start */
+div {
+  ...
+}
+/*!critical:end */
+```
+
+This use [postcss-critical-split](https://github.com/mrnocreativity/postcss-critical-split) and [postcss-pipeline-webpack-plugin](https://github.com/mistakster/postcss-pipeline-webpack-plugin)
+
+## Change log
+
+### 1.0.0
+
+> 2018-11-06
+
+- initial release
