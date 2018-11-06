@@ -1,3 +1,3 @@
 // import '/assets/test.css'
-let a = '!!Hello!!----çça çç)'
+let a = 'Hello !'
 console.log(a)
