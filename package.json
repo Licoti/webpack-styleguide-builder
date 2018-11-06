@@ -1,7 +1,7 @@
 {
-  "name": "la1ere-styleguides",
+  "name": "styleguide-builder",
   "version": "1.0.0",
-  "description": "Style Guide la1ere",
+  "description": "Style Guide Builder",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=dev webpack",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.ftven.net:regions/la1ere-styleguides.git"
+    "url": "git@github.com:Licoti/webpack-styleguide-builder.git"
   },
   "author": "",
   "license": "ISC",
