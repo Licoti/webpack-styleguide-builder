@@ -72,27 +72,8 @@
         {{#if homepage}}
           {{{homepage}}}
         {{/if}}
-          <h1 class="copy--h1" id="getting-started">Getting started</h1>
-
-          <h2>1. At the root folder</h2>
-          <pre class="styleguide copy--body language-bash"><code>npm install</code></pre>
-
-          <h2>2. Generate the Styleguide templates</h2>
-          <pre class="styleguide copy--body language-bash"><code>npm run kss</code></pre>
-
-          <h2>3. Build</h2>
-          <p>For dev watch :</p>
-          <pre class="styleguide copy--body language-bash"><code>npm run dev</code></pre>
-
-          <p>For dev watch + Webpack HMR :</p>
-          <pre class="styleguide copy--body language-bash"><code>npm run dev:start</code></pre>
-
-          <p>For deployement :</p>
-          <pre class="styleguide copy--body language-bash"><code>npm run prod</code></pre>
-
         </article>
       {{else}}
-
         <!--
           display each section, in order.
           the "root" element comes first in this loop, and can be detected using

@@ -1,1 +1,0 @@
-# Homepage Style Guide

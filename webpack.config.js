@@ -19,10 +19,7 @@ let KssConfig = {
   destination: "styleguide",
   builder: "styleguide/custom-template/",
   styleguide_version: "1.0.0",
-  homepage: path.resolve(__dirname, 'styleguide/kss-homepage.md') //A fixer
-  //css: "",
-  //custom: "",
-  //chunks: ['app']
+  homepage: "styleguide-homepage.md"
 };
 
 const pipelinePlugin = new PostCssPipelineWebpackPlugin({
@@ -171,6 +168,14 @@ filesTemplates.forEach(filesTemplates => {
 })
 
 if (kss) {
+  config.plugins.push((
+    new CleanWebpackPlugin(['styleguide/*.html'], {
+      root: path.resolve('./'),
+      verbose: true,
+      dry: false,
+      beforeEmit: true
+    })
+  ))
   config.plugins.push(new KssWebpackPlugin(KssConfig))
 }
 
