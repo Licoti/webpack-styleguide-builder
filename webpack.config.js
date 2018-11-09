@@ -66,7 +66,7 @@ let config = {
   },
   output: {
     path: path.resolve(__dirname, './public/build'),
-    filename: dev ? '[name].js' : '[name].[hash:8].js',
+    filename: dev ? '[name].js' : '[name].[hash:4].js',
   },
   devtool: dev ? "cheap-module-eval-source-map" : "source-map",
   devServer: {
@@ -108,13 +108,36 @@ let config = {
           ...cssLoaders,
           { loader: 'sass-loader', options: { sourceMap: true } }
         ]
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: '[path][name][hash:4].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name][hash:4].[ext]',
+            }
+          }
+        ]
+      },
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: dev ? '[name].css' : "[name].[hash:8].css",
-      chunkFilename: dev ? '[id].css' : "[hash:8].css",
+      filename: dev ? '[name].css' : "[name].[hash:4].css",
+      chunkFilename: dev ? '[id].css' : "[hash:4].css",
       disabled: dev
     }),
 
