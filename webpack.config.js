@@ -66,7 +66,7 @@ let config = {
   },
   output: {
     path: path.resolve(__dirname, './public/build'),
-    filename: dev ? '[name].js' : '[name].[hash:4].js',
+    filename: dev ? '[name].js' : 'assets/js/[name].[hash:4].js',
   },
   devtool: dev ? "cheap-module-eval-source-map" : "source-map",
   devServer: {
@@ -104,7 +104,12 @@ let config = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: dev ? '' : '../..'
+            }
+          },
           ...cssLoaders,
           { loader: 'sass-loader', options: { sourceMap: true } }
         ]
@@ -136,7 +141,7 @@ let config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: dev ? '[name].css' : "[name].[hash:4].css",
+      filename: dev ? '[name].css' : "assets/css/[name].[hash:4].css",
       chunkFilename: dev ? '[id].css' : "[hash:4].css",
       disabled: dev
     }),
