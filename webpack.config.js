@@ -121,7 +121,7 @@ let config = {
             loader: 'url-loader',
             options: {
               limit: 8192,
-              name: '[path][name][hash:4].[ext]'
+              name: dev ? '[name][hash:4].[ext]' : '/assets/img/[name][hash:4].[ext]',
             }
           }
         ]
@@ -141,9 +141,9 @@ let config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: dev ? '[name].css' : "assets/css/[name].[hash:4].css",
+      filename: dev ? '[name].css' : 'assets/css/[name].[hash:4].css',
       chunkFilename: dev ? '[id].css' : "[hash:4].css",
-      disabled: dev
+      disabled: dev,
     }),
 
     pipelinePlugin,
